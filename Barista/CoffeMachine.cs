@@ -4,8 +4,5 @@ using System.Text;
 
 namespace Barista
 {
-    class CoffeMachine
-    {
 
-    }
 }

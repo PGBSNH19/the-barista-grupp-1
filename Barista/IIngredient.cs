@@ -28,6 +28,7 @@ namespace Barista
         public Bean()
         {
 
+
         }
     }
     class Water : IIngredient
@@ -58,4 +59,6 @@ namespace Barista
         public string Unit { get; set; }
 
     }
+
+    public List<IIngredient> Ingredients = new List<IIngredient> { new Bean { Name = "Mellan Rost", Type = "Robusta", Manufacturer = "Gevalia", Price = 45, Unit = "g", Ecological = false, Fairtrade = false, RoastType = "Mellan Rost" } };
 }
