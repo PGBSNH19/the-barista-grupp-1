@@ -6,8 +6,8 @@ namespace Barista
 {
     class Cup
     {
-        public int Size { get; set; }
-        public string Material { get; set; }
+        public string Size { get; set; }
+        public int Mililiter { get;}
 
     }
 }
