@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Barista
 {
-    interface IIngredient
+    public interface IIngredient
     {
         public string Name { get; set; }
         public string Type { get; set; }
@@ -60,5 +60,5 @@ namespace Barista
 
     }
 
-    public List<IIngredient> Ingredients = new List<IIngredient> { new Bean { Name = "Mellan Rost", Type = "Robusta", Manufacturer = "Gevalia", Price = 45, Unit = "g", Ecological = false, Fairtrade = false, RoastType = "Mellan Rost" } };
+    
 }
