@@ -4,10 +4,7 @@ using System.Text;
 
 namespace Barista
 {
-    class Cup
+    class Flavourings
     {
-        public int Size { get; set; }
-        public string Material { get; set; }
-
     }
 }

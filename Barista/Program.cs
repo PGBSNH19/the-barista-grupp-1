@@ -6,7 +6,12 @@ namespace Barista
     {
         static void Main(string[] args)
         {
-            
+            Start();
+
+        }
+        public Start()
+        {
+
         }
     }
 }
