@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Barista
 {
-    public interface IIngredient
+    public class Ingredient
     {
         public string Name { get; set; }
         public string Type { get; set; }
@@ -14,14 +14,8 @@ namespace Barista
         public int Amount { get; set; }
 
     }
-       public class Bean : IIngredient
+       public class Bean : Ingredient
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public string Manufacturer { get; set; }
-        public decimal Price { get; set; }
-        public string Unit { get; set; }
-
         public bool Ecological { get; set; }
         public bool Fairtrade { get; set; }
         public string RoastType { get; set; }
@@ -32,32 +26,17 @@ namespace Barista
 
         }
     }
-    public class Water : IIngredient
+    public class Water : Ingredient
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public string Manufacturer { get; set; }
-        public decimal Price { get; set; }
-        public string Unit { get; set; }
     }
-    public class Milk : IIngredient
+    public class Milk : Ingredient
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public string Manufacturer { get; set; }
-        public decimal Price { get; set; }
-        public string Unit { get; set; }
         public float Fat { get; set; }
         public bool Lactose { get; set; }
         public bool Ecological { get; set; }
     }
-    public class Flavourings : IIngredient
+    public class Flavourings : Ingredient
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public string Manufacturer { get; set; }
-        public decimal Price { get; set; }
-        public string Unit { get; set; }
 
     }
 

@@ -8,14 +8,14 @@ namespace Barista
     {
         static void Main(string[] args)
         {
-            CoffeeMachine maskinen = new CoffeeMachine();
+            
 
             Start();
 
         }
         public static void Start()
         {
-
+           
         }
     }
 }

@@ -7,6 +7,25 @@ namespace Barista
     public class CoffeeMachine
     {
 
+        private CoffeeMachine() { }
+
+        //public IStart Start() => new CoffeeMachine();
+
+        public void AddEspresso(int amount)
+        {
+
+        }
+
+    }
+
+    public interface IStart
+    {
+        public void AddEspresso(int Amount);
+    }
+
+    public interface IStop
+    {
+
     }
 
     public class Espresso
@@ -22,9 +41,6 @@ namespace Barista
             this.water = water;
             this.Amount = water.Amount;
         }
-
-        
-
 
     }
 }
