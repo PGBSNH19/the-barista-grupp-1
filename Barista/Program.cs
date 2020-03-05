@@ -9,13 +9,11 @@ namespace Barista
         static void Main(string[] args)
         {
             CoffeeMachine maskinen = new CoffeeMachine();
-            Bean bönan = maskinen.Ingredients.
-
 
             Start();
 
         }
-        public Start()
+        public static void Start()
         {
 
         }
