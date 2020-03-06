@@ -4,22 +4,44 @@ using System.Text;
 using System.Linq;
 
 namespace Barista {
-    public class CoffeeMachine : IStart, IEspresso, IStop
+    public class CoffeeMachine : IStart, IWater, IAdditive//, IStop
     {
-        private List<Ingredient> ingredients;
-        public Espresso espresso { get; set; }
+        private List<Ingredient> ingredients = new List<Ingredient>();
 
-        public IEspresso Start() 
+        private CoffeeMachine() { }
+
+        public static IStart Start() => new CoffeeMachine();
+
+        public Coffee MakeEspresso()
         {
-            this.ingredients = new List<Ingredient>();
+            return Start().AddBean((Bean)Program.Ingredients.First(i => i.Name == "Mellan Rost"), 10)
+                .AddWater((Water)Program.Ingredients.First(i => i.Name == "Tap Water"), 10).GetCoffee();
+        }
+
+        public IWater AddBean(Bean bean, int amount)
+        {
+            bean.Amount = amount;
+            this.ingredients.Add(bean);
             return this;
         }
 
-        public IStop AddEspresso(int amount)
+        public IAdditive AddWater(Water water, int amount)
         {
-            this.espresso = (new Espresso(
-                (Bean) Program.Ingredients.Where(i => i.Name == "Mellan Rost").First(),
-                (Water)Program.Ingredients.Where(i => i.Name == "Loka Citron").First()));
+            water.Amount = amount;
+            this.ingredients.Add(water);
+            return this;
+        }
+
+        public IAdditive AddMilk(Milk milk, int amount)
+        {
+            milk.Amount = amount;
+            this.ingredients.Add(milk);
+            return this;
+        }
+        public IAdditive AddFlavouring(Flavouring flavouring, int amount)
+        {
+            flavouring.Amount = amount;
+            this.ingredients.Add(flavouring);
             return this;
         }
 
@@ -27,25 +49,25 @@ namespace Barista {
         {
             return new Coffee(this.ingredients);
         }
-
     }
 
     public interface IStart
     {
-        public IEspresso Start();
+        public IWater AddBean(Bean bean, int amount);
+        public Coffee MakeEspresso();
     }
 
-    public interface IEspresso
+    public interface IWater
     {
-        public IStop AddEspresso(int Amount);
+        public IAdditive AddWater(Water water, int amount);
     }
 
-    public interface IStop
+    public interface IAdditive
     {
+        public IAdditive AddMilk(Milk milk, int amount);
+        public IAdditive AddFlavouring(Flavouring flavouring, int amount);
         public Coffee GetCoffee();
     }
-
-
 
     public class Coffee
     {
@@ -54,22 +76,5 @@ namespace Barista {
         {
             this.Ingredients = ingredients;
         }
-    }
-
-
-    public class Espresso : Ingredient
-    {
-        public Bean bean { get; }
-        public Water water { get; }
-
-        public int Amount { get; set; }
-
-        public Espresso(Bean bean , Water water)
-        {
-            this.bean = bean;
-            this.water = water;
-            this.Amount = water.Amount;
-        }
-
     }
 }
